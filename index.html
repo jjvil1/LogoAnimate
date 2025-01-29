@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JDavillierLoading</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="logo-div">
+    <img src="/images/logowball.png" class="jdlogo">
+  </div>
+  <button class="start-button" onclick="start()"> <h2>Open Site</h2>  </button>
+
+  <div class="blank-div top"> </div>
+  <div class="blank-div bottom"></div>
+  <img src="/images/JDLogo.png" class="small-logo">
+
+  <script>
+    const logo = document.querySelector('.jdlogo');
+    const logoDiv = document.querySelector('.logo-div');
+    const button = document.querySelector('.start-button');
+    const blankDivs = document.querySelectorAll('.blank-div');
+    const topDiv = document.querySelector('.top');
+    const bottomDiv = document.querySelector('.bottom');
+    const smallLogo = document.querySelector('.small-logo')
+
+
+    logo.style.animation = 'appear 1s ease-out forwards';
+    logo.addEventListener('animationend', (event) => {
+      if (event.animationName === 'appear') {
+        logo.style.animation = 'spin 3.5s linear infinite';
+      }
+    });
+
+    setTimeout(() => {
+      logoDiv.style.animation = 'logo-div-escape 1.4s ease forwards' //End loading animation and move logo out after delay. (In application this could be tied to actual loading.)
+    }, 7400);
+
+    setTimeout(() => {
+      button.style.opacity = 1
+    }, 8400);
+
+    
+
+    function start() { //Start function which activates when the start button is pressed. Fades the button away and moves the divs in from the bottom and top. Then drops the small logo.
+      button.style.opacity = 0;
+      topDiv.style.animation = 'move-in 1s ease-out forwards'
+      bottomDiv.style.animation = 'move-in 1s ease-out forwards'
+      blankDivs.forEach((div) =>  {
+        div.style.opacity = 1
+      });
+      smallLogo.style.animation = 'logo-drop .2s 2s cubic-bezier(.21,.18,.38,1.97) both'
+    }
+
+  </script>
+
+</body>
+
+</html>

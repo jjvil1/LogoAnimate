@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap');
+
+.logo-div {
+  position: fixed;
+  left: 40%;
+  top: 30%;
+  animation: bounce 1.8s linear infinite both;
+  animation-delay: 2s;
+}
+
+.jdlogo {
+  height: auto;
+  width: 300px;            
+} /* This and the above class are for the logo that will be used as the loading icon */
+
+.small-logo {
+  height: auto;
+  width: 120px;
+  position: fixed;
+  top: 40px;
+  left: 60px;
+  transform: translateY(-200px);
+} /* A small logo that will appear on the top left of the page after the start button is presed. */
+
+.start-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 0px 70px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.583);
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity .5s ease-in, background-color .5s ease-in;
+} /* Button to open the site after loading animation. */
+
+.start-button:hover {
+  background-color: rgba(255, 255, 255, 0.895);
+}
+
+.blank-div {
+  position: fixed;
+  width: 100vw;
+  color: black;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+} /* Divs used to represent the webpage sections. */
+
+.top {
+  height: 30vh;
+  top: 0%;
+  justify-content: center;
+  text-align: center;
+  vertical-align: bottom;
+  transform: translateY(-500px);
+  transition: transform 1s ease-in;
+}
+
+.bottom {
+  height: 20vh;
+  top: 90%;
+  transform: translateY(500px);
+  transition: transform 1s ease-in;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+} /* Spin animation for the logo to convey loading */
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(10px) ;
+  }
+  30% {
+    transform: translateY(-25px) ;
+  }
+  35% {
+    transform: translateY(-30px) ;
+  }
+  40% {
+    transform: translateY(-25px) ;
+  }
+  44% {
+    transform: translateY(-18px) ;
+  }
+  55% {
+    transform: translateY(45px) ;
+  }
+  60% {
+    transform: translateY(50px) ;
+  }
+  75% {
+    transform: translateY(35px) ;
+  }
+
+  95% {
+    transform: translateY(-5px) ;
+  }
+  97% {
+    transform: translateY(-4px);
+  }
+} /* A bounce animation used on the logo-div to add a fun effect while it spins */
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(40px);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform:  scale(1) translateY(0px);
+  }
+} /* Animation that plays when the logo first appears to make it scale up and fade in */
+
+
+@keyframes logo-div-escape {
+  40% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-700px);
+  }
+}/* logo flies up and off screen */
+
+@keyframes move-in {
+  to {
+    transform: translateY(0);
+  }
+} /* Used on blank-div classes, makes them move into view */
+
+@keyframes logo-drop {
+  to {
+    transform: translateY(0px);
+  }
+} /* Small logo drops into the top left Navbar */
+
+body {
+  /* background: #433F55; */
+  background: rgb(108, 108, 108) url("/images/bgImage.JPG") no-repeat fixed;
+  background-size: cover;
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-size:3.5rem;
+  font-weight: 700;
+  padding-top: 8rem;
+  display:flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
